@@ -1,14 +1,22 @@
 <?php
+// Iniciar sesión antes de cualquier output
+session_start();
+
 require_once '../includes/auth.php';
 
-// Asegúrate de que la sesión esté iniciada en auth.php
-if (!isLoggedIn() || !isAprendiz()) {
-    // Si no está logueado o no es aprendiz, redirige al login
+// Verificar si el usuario está logueado y es aprendiz
+if (!isLoggedIn()) {
     header("Location: ../login.php");
     exit();
 }
 
-// Incluye la clase Database si no está incluida en auth.php
+if (!isAprendiz()) {
+    // Redirigir a otro panel si es instructor o rol distinto
+    header("Location: ../instructor/dashboard.php");
+    exit();
+}
+
+// Conexión a la base de datos
 require_once '../includes/config.php';
 
 $db = new Database();
@@ -43,7 +51,7 @@ $fichas = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         <div class="row mt-4">
             <div class="col-md-6">
-                <div class="card">
+                <div class="card shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title">Mis Tareas</h5>
                         <p class="card-text">Revisa las tareas asignadas y sus fechas de entrega.</p>
@@ -53,17 +61,17 @@ $fichas = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
             
             <div class="col-md-6">
-                <div class="card">
+                <div class="card shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title">Mis Calificaciones</h5>
                         <p class="card-text">Revisa las calificaciones de tus tareas entregadas.</p>
-                        <a href="calificaciones.php" class="btn btn-primary">Ver Calificaciones</a>
+                        <a href="calificaciones.php" class="btn btn-success">Ver Calificaciones</a>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="mt-4">
+        <div class="mt-5">
             <h4>Mis Fichas</h4>
             <div class="list-group">
                 <?php foreach ($fichas as $ficha): ?>

@@ -1,19 +1,22 @@
 <?php
 session_start();
 require_once('includes/config.php');
-require_once('includes/auth.php'); // Asegúrate de tener esta lógica
-
-if (isLoggedIn()) {
-    // Si ya está logueado redirige según el rol
-    if (isInstructor()) {
-        header("Location: instructor/dashboard.php");
-    } else {
-        header("Location: aprendiz/dashboard.php");
-    }
-    exit();
-}
+require_once('includes/auth.php');
 
 $error = '';
+
+// Redirige si ya está logueado
+if (isset($_SESSION['user_id']) && isset($_SESSION['rol'])) {
+    if ($_SESSION['rol'] === 'instructor') {
+        header("Location: instructor/dashboard.php");
+        exit();
+    } elseif ($_SESSION['rol'] === 'aprendiz') {
+        header("Location: aprendiz/dashboard.php");
+        exit();
+    }
+}
+
+// Procesamiento del formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -21,8 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (login($email, $password)) {
         if (isInstructor()) {
             header("Location: instructor/dashboard.php");
-        } else {
+        } elseif (isAprendiz()) {
             header("Location: aprendiz/dashboard.php");
+        } else {
+            $error = "Rol de usuario no reconocido.";
         }
         exit();
     } else {
@@ -30,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -40,8 +46,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="icon" href="assets/img/icon2.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
+        body {
+            background-image: url('assets/img/background.jpg');
+            background-size: cover;
+            background-position: center;
+        }
         .logo {
-            width: 80px;
+            width: 180px;
             height: auto;
         }
         .bx {
@@ -52,16 +63,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             transform: translateY(-50%);
             cursor: pointer;
         }
-        input {
-            height: 45px;
-        }
-        select {
+        input, select {
             height: 45px;
         }
     </style>
 </head>
-<body style="background-image: url(assets/img/background.jpg);">
-    <br><br><br><br><br>
+<body>
+    <br><br><br><br>
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="col-lg-9">
@@ -69,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="row g-0">
                         <!-- Lado Bienvenida -->
                         <div class="col-md-6 d-flex flex-column justify-content-center p-5 rounded-start" style="background: #8ac5fe;">
-                            <img src="assets/img/icon2.png" alt="TeamTalks Logo" class="logo mb-3 mx-auto d-block" style="width:180px;">
+                            <img src="assets/img/icon2.png" alt="Logo" class="logo mb-3 mx-auto d-block">
                             <h1 class="text-start">Hola</h1>
                             <h2 class="text-start">¡Bienvenido!</h2>
                             <p class="text-start">
@@ -83,9 +91,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="col-md-6 p-5">
                             <h3 class="mb-4">Iniciar sesión</h3>
                             <?php if ($error): ?>
-                                <div class="alert alert-danger"><?php echo $error; ?></div>
+                                <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
                             <?php endif; ?>
-                            <form method="POST" autocomplete="off" id="formulario">
+                            <form method="POST" autocomplete="off">
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Correo Electrónico</label>
                                     <input type="email" name="email" id="email" class="form-control" placeholder="Ingresa tu correo" required>
@@ -102,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                 <div class="d-flex justify-content-between">
                                     <a href="index.php" class="btn btn-secondary">Regresar</a>
-                                    <button type="submit" class="btn btn-primary" name="submit">Iniciar sesión</button>
+                                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
                                 </div>
                             </form>
                         </div>
