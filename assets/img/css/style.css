@@ -1,0 +1,54 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Estilos para las tablas */
+.table-responsive {
+    margin-top: 20px;
+}
+
+/* Estilos para los badges */
+.badge {
+    font-size: 0.9em;
+    font-weight: normal;
+}
+
+/* Estilos para los estados */
+.vencida {
+    background-color: #ffdddd !important;
+}
+
+.entregada {
+    background-color: #ddffdd !important;
+}
+
+.calificada {
+    background-color: #d0ebff !important;
+}
+
+/* Estilos para el navbar */
+.navbar {
+    margin-bottom: 20px;
+}
+
+/* Estilos para los formularios */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+/* Estilos para los alerts */
+.alert {
+    margin-top: 20px;
+}

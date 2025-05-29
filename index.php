@@ -1,3 +1,19 @@
+<?php
+require_once 'includes/auth.php';
+
+if (isLoggedIn()) {
+    if (isInstructor()) {
+        header("Location: instructor/dashboard.php");
+    } else {
+        header("Location: aprendiz/dashboard.php");
+    }
+    exit();
+} else {
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +25,6 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 </head>
 <body>
 
@@ -17,14 +32,13 @@
     include 'includes/design/header.php';
     ?>
 
-
     <main class="container-fluid py-4 py-lg-5">
         <div class="row align-items-center">
             <!-- Contenido de texto -->
             <div class="col-lg-6 col-md-12 order-lg-2 order-2 px-4 px-md-5">
                 <div class="content text-center text-md-start">
                     <h5 class="mb-3 mb-lg-4" style="background-color: #0E4A86; border-radius:35px; padding: 20px; color:white; width: 60%;">
-                        <i class='bx bxs-bell'></i> Trabajo en equipo con TeamTalks <br class="d-none d-md-block">  My WorkPlace
+                        <i class='bx bxs-bell'></i> Trabajo en equipo con TeamTalks <br class="d-none d-md-block"> My WorkPlace
                     </h5>
                     <h1 class="display-5  fw-bold mb-3 mb-lg-4">
                         Más <span class="text-primary fw-bold">participación</span> <br class="d-none d-md-block"> en el lugar de aprendizaje
@@ -46,7 +60,6 @@
             </div>
 
             <!-- Contenedor de imágenes -->
-           <!-- filepath: c:\xampp\htdocs\TeamTalks_Beta\index.php -->
             <div class="col-lg-6 col-md-12 order-lg-2 order-1 mb-4 mb-lg-0">
                 <div class="images d-flex flex-wrap justify-content-center gap-3 px-2 px-md-0">
                     <img src="assets/img/img2.jpg" alt="Imagen Grande" class="img-fluid rounded shadow-lg" style="max-height: 300px; width: 48%;">
@@ -54,18 +67,12 @@
                 </div>
             </div>
         </div>
-        
     </main>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br>
 
     <?php
     include 'includes/design/footer.php';
     ?>
 
-
-    
 </body>
 </html>
