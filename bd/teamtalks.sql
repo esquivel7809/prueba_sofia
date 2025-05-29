@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-05-2025 a las 17:53:54
+-- Tiempo de generación: 29-05-2025 a las 18:03:05
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -124,11 +124,17 @@ INSERT INTO `actividades` (`id_actividad`, `id_materia_ficha`, `titulo`, `descri
 (6, 8, 'modelo canvas', 'hacer el modelo canvas de su proyecto', '6837093c48a012.48172628.docx', '2025-05-30'),
 (7, 1, 'operaciones matematicas', 'hacer las operaciones matematicas dadas', '68370ac9c971c9.31876585.docx', '2025-05-30'),
 (8, 9, 'operaciones matematicas', 'hacer las operaciones matematicas dadas ', '68370b4d832fe5.45017938.docx', '2025-05-31'),
-(9, 10, 'escrito castellano', 'hacer un escrito sobre su proyecto', '683722d4cac405.03751989.docx', '2025-05-31'),
+(9, 10, ' castellano', 'hacer un escrito sobre su proyectobnm,.,mnbv', '683722d4cac405.03751989.docx', '2025-05-31'),
 (10, 9, 'operaciones matematicas', 'sdfghjkjgfds', '683718be04eb29.19021974.pdf', '2025-05-30'),
 (11, NULL, 'zxcvbnk', 'sdfghjklñlkjhgfcx', '683719387ce8f0.98290373.docx', '2025-05-31'),
 (12, 10, 'sdfghjk,mnbvccv ', 'fghjklñlkjhgvc', '68371983f3bbc1.72450240.docx', '2025-05-30'),
-(13, 12, 'operaciones matematicas', 'rtyuiolkjhgfds', '68372d206c1d14.27049709.pdf', '2025-05-30');
+(13, 12, 'operaciones matematicas', 'rtyuiolkjhgfds', '68372d206c1d14.27049709.pdf', '2025-05-30'),
+(14, 21, 'ejercicios de fisica', 'wertilkjhgfdsa', '683864135d5353.06233165.docx', '2025-05-31'),
+(15, 11, 'asdf.--jhgfdssdfgh,,mnbvc', 'sdfghjkjhgfdsasdfghjkkjhgfd', '683864459e0472.78854693.docx', '2025-05-31'),
+(16, 20, 'ejercicios de ingles ', 'dfghjklñlkjhgfdsa', '683873a79d9403.80710020.docx', '2025-05-31'),
+(17, 25, 'operaciones matematicas', 'hjklñlkjhgfdssdfghjk', '68387530d3ea71.37271510.pdf', '2025-05-31'),
+(18, 12, 'jkjhgfdssdfghh', 'sdfghjhgfdsdfgh', '683881ec6a7234.07900122.pdf', '2025-05-31'),
+(19, 10, 'operaciones matematicas', 'gfddfghjjhgf', '683882d2c78f15.32917102.pdf', '2025-05-31');
 
 -- --------------------------------------------------------
 
@@ -152,9 +158,11 @@ CREATE TABLE `actividades_user` (
 --
 
 INSERT INTO `actividades_user` (`id_actividad_user`, `id_actividad`, `id_estado_actividad`, `contenido`, `archivo`, `fecha_entrega`, `id_user`, `nota`) VALUES
-(1, 9, 2, 'adjunto mi evidencia de entrega del trabajo \n\nComentarios del instructor: buena entrega de trabajo', '68371c45b26715.37512330.docx', '2025-05-28', 1012353643, 5.00),
-(2, 13, 2, 'adjunto evidencia de las operaciones matematicas\n\nComentarios del instructor: dfghjklñlkjhgfds\nResultado: APROBADO', '68372dac498270.13299953.docx', '2025-05-28', 1012353643, 3.00),
-(3, 12, 2, 'sghjklñ{}ñlkjhgfd\n\nComentarios del instructor: corregir redaccion\nResultado: REPROBADO', '68372dcfc36161.56101791.pdf', '2025-05-28', 1012353643, 1.00);
+(1, 9, 2, 'adjunto mi evidencia de entrega del trabajo \n\nComentarios del instructor: buena entrega de trabajo', '68371c45b26715.37512330.docx', '2025-05-29', 1012353643, 5.00),
+(2, 13, 2, 'adjunto evidencia de las operaciones matematicas\n\nComentarios del instructor: dfghjklñlkjhgfds\nResultado: APROBADO', '68372dac498270.13299953.docx', '2025-05-29', 1012353643, 3.00),
+(3, 12, 2, 'sghjklñ{}ñlkjhgfd\n\nComentarios del instructor: corregir redaccion\nResultado: REPROBADO', '68372dcfc36161.56101791.pdf', '2025-05-29', 1012353643, 1.00),
+(4, 15, 2, 'adjunto evidencia de entrega del trabajo\n\nComentarios del instructor: euioplkjhgfdsdfghjkl\nResultado: REPROBADO', '6838653f7c7d16.80450596.pdf', '2025-05-29', 1012353643, 2.60),
+(5, 9, 1, 'kkjasdfghjhgfdsdfgh', '683880cb7b6837.06986911.pdf', '2025-05-29', 1234567830, NULL);
 
 -- --------------------------------------------------------
 
@@ -409,7 +417,20 @@ INSERT INTO `materia_ficha` (`id_materia_ficha`, `id_materia`, `id_ficha`, `id_i
 (9, 2, 2900005, 1012353162, NULL),
 (10, 13, 2901879, 1012353162, NULL),
 (11, 6, 2901879, 1012353162, NULL),
-(12, 1, 2901879, 1012353162, NULL);
+(12, 1, 2901879, 1012353162, NULL),
+(13, 1, 2323, 1598989, NULL),
+(14, 1, 2323, 1012353162, NULL),
+(15, 1, 2900000, 1012353162, NULL),
+(16, 1, 2900001, 1012353162, NULL),
+(17, 1, 2900002, 1012353162, NULL),
+(18, 1, 2900003, 1012353162, NULL),
+(19, 1, 2900004, 1012353162, NULL),
+(20, 3, 2901879, 1012353162, NULL),
+(21, 4, 2901879, 1012353162, NULL),
+(22, 5, 2901879, 1012353162, NULL),
+(23, 7, 2901879, 1012353162, NULL),
+(24, 8, 2901879, 1012353162, NULL),
+(25, 9, 2901879, 1012353162, NULL);
 
 -- --------------------------------------------------------
 
@@ -608,7 +629,9 @@ INSERT INTO `user_ficha` (`id_user_ficha`, `id_user`, `id_ficha`, `fecha_asig`, 
 (7, 85858, 2323, '2025-05-22', 1),
 (8, 3157883790, 2323, '2025-05-22', 1),
 (9, 31578583790, 2323, '2025-05-25', 1),
-(10, 1012353643, 2901879, NULL, 1);
+(10, 1012353643, 2901879, NULL, 1),
+(11, 1012344162, 2901879, NULL, 1),
+(12, 1234567830, 2901879, '2025-05-29', 1);
 
 -- --------------------------------------------------------
 
@@ -653,9 +676,11 @@ INSERT INTO `usuarios` (`id`, `id_tipo`, `nombres`, `apellidos`, `correo`, `cont
 (232121111, 1, 'weadad', 'adad', 'adas@gmail.com', '$2y$10$RHLYh4BJNrM5FI9JnTuE1u5/JSAlGvOhVUQvTDCIojwWbFfUpYWea', NULL, '123123123', 4, 1, '2025-05-21', 159, NULL),
 (443272210, 2, 'Juliaan Lópaez', NULL, 'Juliaana@gmail.com', '$2y$10$gwPMsPjjYfvMfkuXWYQ3DekXUImk5FbPjugn/AyI0.mQZNeTXRF0W', '', '31022345678', 4, 1, '2025-05-22', 159, NULL),
 (765432210, 1, 'Maríaa López', NULL, 'mariaalopez@mail.com', '$2y$10$bPm7y/Ce0IyQSSB47cfrKeBF4aDsjvORq36YqKj6IQU.cDxYz1Tfm', '', '3102345678', 4, 1, '2025-05-22', 159, NULL),
-(1012353162, 2, 'sofia', 'enciso', 'encisogarciaelisabetsofia@gmail.com', '$2y$10$3PYnjp8OVbEYZ.EVFNXHUuFBgtYHOzkIy7wx073t5Qg/eiXKK0jLi', NULL, '3022927343', 3, 1, NULL, 0, NULL),
-(1012353643, 2, 'elisabet', 'enciso', 'encisogarciaeli@gmail.com', '$2y$10$phAoQss.UFc9KjvBafzse./buFWFnzI0HGaXWAgPTkj9PWOzqn/Ey', NULL, '3022927348', 4, 1, NULL, 159, 2901879),
+(1012344162, 2, 'paula', 'enciso', 'pveg@gmail.com', '$2y$10$On5CVayl..5.kvDOus1uIeDDm0zcq1jx3T8bCNtFEs0MM/Dk8TuMm', NULL, '3022955674', 4, 1, NULL, 159, 2901879),
+(1012353162, 2, 'sofia', 'enciso', 'encisogarciaelisabetsofia@gmail.com', '$2y$10$3PYnjp8OVbEYZ.EVFNXHUuFBgtYHOzkIy7wx073t5Qg/eiXKK0jLi', NULL, '3022927343', 2, 1, NULL, 0, NULL),
+(1012353643, 2, 'elisabet', 'enciso', 'encisogarciaeli@gmail.com', '$2y$10$phAoQss.UFc9KjvBafzse./buFWFnzI0HGaXWAgPTkj9PWOzqn/Ey', NULL, '3022927348', 3, 1, NULL, 159, 2901879),
 (1104940105, 1, 'Edier\r\n', 'Moyano', 'ediersmb@gmail.com', '$2y$12$Z8XHAwYyhkcYU8LCwUCu3.Ff3LHBigWUDlOjF7wRlyFb6wmQYfply', NULL, '3028623064', 1, 1, NULL, 159, NULL),
+(1234567830, 2, 'juan', 'vallejo', 'juanes2112@gmail.com', '$2y$10$ZcvLPEN3N8NfTum3alVpaeKvT9RBoJHNm7GwwesN8DsNE4IX//GFy', NULL, '3022927344', 4, 1, '2025-05-29', 159, 2901879),
 (2147483647, 1, '222sadasda', 'asdas2', 'peee@gmail.com', '$2y$10$9WMyF7K41WS4hYXfb8kUOex8P495mjZuTSDBRONAriOfyw4mEiQk.', NULL, '32323211', 4, 1, '2025-05-21', 159, NULL),
 (3157883790, 1, 'marian Lópae5z', NULL, 'piuliaa1na@gmail.com', '$2y$10$PLkz31WOt5euke2lsmp0XuIr/rzdYP2qREneT/l2YickNs5WioMLy', '', '31999345678', 4, 1, '2025-05-23', 159, NULL),
 (31578583790, 1, 'mariano Lopae5z', NULL, 'piuliaaa1na@gmail.com', '$2y$10$iHjGsHUS.kP3hLq2c5DPDem0nX.xXzD3MWWYZJhY/5NfWvtEh.jD2', '', '31999345678', 3, 1, '2025-05-25', 159, NULL),
@@ -859,13 +884,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `actividades`
 --
 ALTER TABLE `actividades`
-  MODIFY `id_actividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_actividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `actividades_user`
 --
 ALTER TABLE `actividades_user`
-  MODIFY `id_actividad_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_actividad_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
@@ -895,7 +920,7 @@ ALTER TABLE `materias`
 -- AUTO_INCREMENT de la tabla `materia_ficha`
 --
 ALTER TABLE `materia_ficha`
-  MODIFY `id_materia_ficha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_materia_ficha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `recuperacion`
@@ -925,7 +950,7 @@ ALTER TABLE `tipo_formacion`
 -- AUTO_INCREMENT de la tabla `user_ficha`
 --
 ALTER TABLE `user_ficha`
-  MODIFY `id_user_ficha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_user_ficha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restricciones para tablas volcadas

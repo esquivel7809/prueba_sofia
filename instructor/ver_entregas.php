@@ -33,17 +33,20 @@ $stmt = $conn->prepare("
     JOIN materia_ficha mf ON a.id_materia_ficha = mf.id_materia_ficha
     JOIN materias m ON mf.id_materia = m.id_materia
     JOIN fichas f ON mf.id_ficha = f.id_ficha
-    JOIN formacion fo ON f.id_formacion = fo.id_formacion
+    LEFT JOIN formacion fo ON f.id_formacion = fo.id_formacion
     JOIN usuarios u ON au.id_user = u.id
     WHERE au.nota IS NULL
-    AND f.id_instructor = :id_instructor
+    -- AND mf.id_instructor = :id_instructor
     ORDER BY au.fecha_entrega DESC
 ");
-$stmt->bindParam(':id_instructor', $user_id);
+
+// Prueba sin filtro para ver si hay entregas
+// $stmt->bindParam(':id_instructor', $user_id);
 $stmt->execute();
 
 $entregas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+error_log("Entregas encontradas: " . count($entregas));
 ?>
 
 <!DOCTYPE html>

@@ -48,7 +48,9 @@ $admin = $_SESSION['admin'];
                 <p class="text-center">Selecciona una opción para gestionar el sistema:</p>
                 <div class="d-flex flex-column align-items-center gap-3">
                     <a href="registrar_aprendiz.php" class="btn btn-custom w-50">Registrar Aprendiz</a>
+                    <a href="registrar_instructor.php" class="btn btn-outline-primary w-50">Registrar Instructor</a>
                     <a href="ver_aprendices.php" class="btn btn-outline-primary w-50">Ver Lista de Aprendices</a>
+                    <a href="ver_instructores.php" class="btn btn-outline-primary w-50">Ver Lista de Instructores</a>
                     <a href="logout.php" class="btn btn-danger w-50">Cerrar sesión</a>
                 </div>
             </div>
