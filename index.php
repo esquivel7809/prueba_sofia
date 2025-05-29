@@ -1,7 +1,9 @@
 <?php
 require_once 'includes/auth.php';
 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Redirección según el rol
 if (isLoggedIn()) {
@@ -78,7 +80,7 @@ if (isLoggedIn()) {
                     <div class="fs-5 mb-3">
                         <span class="text-primary fw-bold">¿Listo para comenzar?</span>
                     </div>
-                    <a href="login.php" class="btn btn-primary px-4 py-2">Iniciar sesión</a>
+                    
                 </div>
             </div>
 
