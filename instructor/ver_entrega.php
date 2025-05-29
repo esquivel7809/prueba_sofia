@@ -8,7 +8,7 @@ if (!isLoggedIn() || !isInstructor()) {
 }
 
 if (!isset($_GET['id'])) {
-    header("Location: entregas.php"); // Redirige a la lista general
+    header("Location: ver_entregas.php"); // Redirige a la lista general
     exit();
 }
 
@@ -33,10 +33,10 @@ $stmt = $conn->prepare("
     JOIN materia_ficha mf ON a.id_materia_ficha = mf.id_materia_ficha
     JOIN materias m ON mf.id_materia = m.id_materia
     JOIN fichas f ON mf.id_ficha = f.id_ficha
-    JOIN formacion fo ON f.id_formacion = fo.id_formacion
+    LEFT JOIN formacion fo ON f.id_formacion = fo.id_formacion
     JOIN usuarios u ON au.id_user = u.id
     WHERE au.id_actividad_user = :id
-    AND f.id_instructor = :id_instructor
+    AND mf.id_instructor = :id_instructor
 ");
 $stmt->bindParam(':id', $id_actividad_user);
 $stmt->bindParam(':id_instructor', $_SESSION['user_id']);
@@ -45,7 +45,7 @@ $stmt->execute();
 $entrega = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$entrega) {
-    header("Location: entregas.php");
+    header("Location: ver_entregas.php");
     exit();
 }
 ?>
@@ -93,15 +93,18 @@ if (!$entrega) {
 
         <div class="mb-3">
             <?php if ($entrega['nota'] === null): ?>
-                <a href="calificar.php?id=<?php echo $entrega['id_actividad_user']; ?>" class="btn btn-success">
-                    Calificar Entrega
-                </a>
+                <form action="calificar.php" method="post" class="d-flex align-items-center gap-2">
+                    <input type="hidden" name="id" value="<?php echo $entrega['id_actividad_user']; ?>">
+                    <label for="nota" class="form-label mb-0"><strong>Nota:</strong></label>
+                    <input type="number" name="nota" id="nota" class="form-control" min="0" max="5" step="0.1" required style="width:100px;">
+                    <button type="submit" class="btn btn-success">Calificar Entrega</button>
+                </form>
             <?php else: ?>
                 <div class="alert alert-info">
                     <strong>Ya calificada:</strong> Nota: <?php echo htmlspecialchars($entrega['nota']); ?>
                 </div>
             <?php endif; ?>
-            <a href="entregas.php" class="btn btn-secondary">Volver</a>
+            <a href="ver_entregas.php" class="btn btn-secondary">Volver</a>
         </div>
     </div>
 
